@@ -1,0 +1,15 @@
+[2025-09-06T17:13:56.990+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_etl_pipeline.save_weather_report manual__2025-09-06T17:13:52.661288+00:00 [queued]>
+[2025-09-06T17:13:56.995+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_etl_pipeline.save_weather_report manual__2025-09-06T17:13:52.661288+00:00 [queued]>
+[2025-09-06T17:13:56.995+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-09-06T17:13:57.002+0000] {taskinstance.py:2191} INFO - Executing <Task(_PythonDecoratedOperator): save_weather_report> on 2025-09-06 17:13:52.661288+00:00
+[2025-09-06T17:13:57.005+0000] {standard_task_runner.py:60} INFO - Started process 111 to run task
+[2025-09-06T17:13:57.007+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'weather_etl_pipeline', 'save_weather_report', 'manual__2025-09-06T17:13:52.661288+00:00', '--job-id', '33', '--raw', '--subdir', 'DAGS_FOLDER/etlweather.py', '--cfg-path', '/tmp/tmp0jk73cv2']
+[2025-09-06T17:13:57.008+0000] {standard_task_runner.py:88} INFO - Job 33: Subtask save_weather_report
+[2025-09-06T17:13:57.040+0000] {task_command.py:423} INFO - Running <TaskInstance: weather_etl_pipeline.save_weather_report manual__2025-09-06T17:13:52.661288+00:00 [running]> on host fbb9d538f3fd
+[2025-09-06T17:13:57.083+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='weather_etl_pipeline' AIRFLOW_CTX_TASK_ID='save_weather_report' AIRFLOW_CTX_EXECUTION_DATE='2025-09-06T17:13:52.661288+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-06T17:13:52.661288+00:00'
+[2025-09-06T17:13:57.086+0000] {etlweather.py:130} INFO - Weather report saved to /opt/***/dags/output/weather_report_20250906_171357.html
+[2025-09-06T17:13:57.087+0000] {etlweather.py:131} INFO - Weather data saved to /opt/***/dags/output/weather_data_20250906_171357.json
+[2025-09-06T17:13:57.087+0000] {python.py:201} INFO - Done. Returned value was: ('/opt/***/dags/output/weather_report_20250906_171357.html', '/opt/***/dags/output/weather_data_20250906_171357.json')
+[2025-09-06T17:13:57.096+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=weather_etl_pipeline, task_id=save_weather_report, execution_date=20250906T171352, start_date=20250906T171356, end_date=20250906T171357
+[2025-09-06T17:13:57.141+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-09-06T17:13:57.151+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

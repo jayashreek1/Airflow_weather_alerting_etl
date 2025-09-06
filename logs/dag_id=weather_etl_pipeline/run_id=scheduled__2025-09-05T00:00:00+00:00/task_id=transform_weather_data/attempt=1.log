@@ -1,0 +1,78 @@
+[2025-09-06T16:50:36.570+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_etl_pipeline.transform_weather_data scheduled__2025-09-05T00:00:00+00:00 [queued]>
+[2025-09-06T16:50:36.574+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_etl_pipeline.transform_weather_data scheduled__2025-09-05T00:00:00+00:00 [queued]>
+[2025-09-06T16:50:36.575+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-09-06T16:50:36.581+0000] {taskinstance.py:2191} INFO - Executing <Task(_PythonDecoratedOperator): transform_weather_data> on 2025-09-05 00:00:00+00:00
+[2025-09-06T16:50:36.584+0000] {standard_task_runner.py:60} INFO - Started process 244 to run task
+[2025-09-06T16:50:36.587+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'weather_etl_pipeline', 'transform_weather_data', 'scheduled__2025-09-05T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/etlweather.py', '--cfg-path', '/tmp/tmpe_qpf9hy']
+[2025-09-06T16:50:36.588+0000] {standard_task_runner.py:88} INFO - Job 5: Subtask transform_weather_data
+[2025-09-06T16:50:36.618+0000] {task_command.py:423} INFO - Running <TaskInstance: weather_etl_pipeline.transform_weather_data scheduled__2025-09-05T00:00:00+00:00 [running]> on host acffb6f403d4
+[2025-09-06T16:50:36.661+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='test@example.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='weather_etl_pipeline' AIRFLOW_CTX_TASK_ID='transform_weather_data' AIRFLOW_CTX_EXECUTION_DATE='2025-09-05T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-09-05T00:00:00+00:00'
+[2025-09-06T16:50:36.662+0000] {python.py:201} INFO - Done. Returned value was: {'latitude': '51.5074', 'longitude': '-0.1278', 'temperature': 22.7, 'windspeed': 15.8, 'winddirection': 125, 'weathercode': 3, 'timestamp': '2025-09-06 16:50:36'}
+[2025-09-06T16:50:36.670+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=weather_etl_pipeline, task_id=transform_weather_data, execution_date=20250905T000000, start_date=20250906T165036, end_date=20250906T165036
+[2025-09-06T16:50:36.679+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-09-06T16:50:36.693+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-09-06T17:53:43.874+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_etl_pipeline.transform_weather_data scheduled__2025-09-05T00:00:00+00:00 [queued]>
+[2025-09-06T17:53:43.878+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_etl_pipeline.transform_weather_data scheduled__2025-09-05T00:00:00+00:00 [queued]>
+[2025-09-06T17:53:43.878+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-09-06T17:53:43.884+0000] {taskinstance.py:2191} INFO - Executing <Task(_PythonDecoratedOperator): transform_weather_data> on 2025-09-05 00:00:00+00:00
+[2025-09-06T17:53:43.887+0000] {standard_task_runner.py:60} INFO - Started process 171 to run task
+[2025-09-06T17:53:43.889+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'weather_etl_pipeline', 'transform_weather_data', 'scheduled__2025-09-05T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/etlweather.py', '--cfg-path', '/tmp/tmp7_3v703e']
+[2025-09-06T17:53:43.890+0000] {standard_task_runner.py:88} INFO - Job 4: Subtask transform_weather_data
+[2025-09-06T17:53:43.915+0000] {task_command.py:423} INFO - Running <TaskInstance: weather_etl_pipeline.transform_weather_data scheduled__2025-09-05T00:00:00+00:00 [running]> on host 629cfc5b05bc
+[2025-09-06T17:53:43.955+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='your-actual-email@gmail.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='weather_etl_pipeline' AIRFLOW_CTX_TASK_ID='transform_weather_data' AIRFLOW_CTX_EXECUTION_DATE='2025-09-05T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-09-05T00:00:00+00:00'
+[2025-09-06T17:53:43.956+0000] {python.py:201} INFO - Done. Returned value was: {'latitude': '51.5074', 'longitude': '-0.1278', 'temperature': 22.4, 'windspeed': 14.5, 'winddirection': 117, 'weathercode': 3, 'timestamp': '2025-09-06 17:53:43'}
+[2025-09-06T17:53:43.967+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=weather_etl_pipeline, task_id=transform_weather_data, execution_date=20250905T000000, start_date=20250906T175343, end_date=20250906T175343
+[2025-09-06T17:53:43.980+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-09-06T17:53:43.995+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-09-06T17:59:28.246+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_etl_pipeline.transform_weather_data scheduled__2025-09-05T00:00:00+00:00 [queued]>
+[2025-09-06T17:59:28.256+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_etl_pipeline.transform_weather_data scheduled__2025-09-05T00:00:00+00:00 [queued]>
+[2025-09-06T17:59:28.256+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-09-06T17:59:28.268+0000] {taskinstance.py:2191} INFO - Executing <Task(_PythonDecoratedOperator): transform_weather_data> on 2025-09-05 00:00:00+00:00
+[2025-09-06T17:59:28.273+0000] {standard_task_runner.py:60} INFO - Started process 171 to run task
+[2025-09-06T17:59:28.280+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'weather_etl_pipeline', 'transform_weather_data', 'scheduled__2025-09-05T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/etlweather.py', '--cfg-path', '/tmp/tmpispb7bs6']
+[2025-09-06T17:59:28.286+0000] {standard_task_runner.py:88} INFO - Job 4: Subtask transform_weather_data
+[2025-09-06T17:59:28.352+0000] {task_command.py:423} INFO - Running <TaskInstance: weather_etl_pipeline.transform_weather_data scheduled__2025-09-05T00:00:00+00:00 [running]> on host e9e7f01c8213
+[2025-09-06T17:59:28.419+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='your-actual-email@gmail.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='weather_etl_pipeline' AIRFLOW_CTX_TASK_ID='transform_weather_data' AIRFLOW_CTX_EXECUTION_DATE='2025-09-05T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-09-05T00:00:00+00:00'
+[2025-09-06T17:59:28.420+0000] {python.py:201} INFO - Done. Returned value was: {'latitude': '51.5074', 'longitude': '-0.1278', 'temperature': 22.4, 'windspeed': 14.5, 'winddirection': 117, 'weathercode': 3, 'timestamp': '2025-09-06 17:59:28'}
+[2025-09-06T17:59:28.432+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=weather_etl_pipeline, task_id=transform_weather_data, execution_date=20250905T000000, start_date=20250906T175928, end_date=20250906T175928
+[2025-09-06T17:59:28.451+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-09-06T17:59:28.466+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-09-06T18:02:14.125+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_etl_pipeline.transform_weather_data scheduled__2025-09-05T00:00:00+00:00 [queued]>
+[2025-09-06T18:02:14.129+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_etl_pipeline.transform_weather_data scheduled__2025-09-05T00:00:00+00:00 [queued]>
+[2025-09-06T18:02:14.130+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-09-06T18:02:14.135+0000] {taskinstance.py:2191} INFO - Executing <Task(_PythonDecoratedOperator): transform_weather_data> on 2025-09-05 00:00:00+00:00
+[2025-09-06T18:02:14.138+0000] {standard_task_runner.py:60} INFO - Started process 171 to run task
+[2025-09-06T18:02:14.140+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'weather_etl_pipeline', 'transform_weather_data', 'scheduled__2025-09-05T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/etlweather.py', '--cfg-path', '/tmp/tmp_bujm3nv']
+[2025-09-06T18:02:14.142+0000] {standard_task_runner.py:88} INFO - Job 4: Subtask transform_weather_data
+[2025-09-06T18:02:14.169+0000] {task_command.py:423} INFO - Running <TaskInstance: weather_etl_pipeline.transform_weather_data scheduled__2025-09-05T00:00:00+00:00 [running]> on host f581a88cde96
+[2025-09-06T18:02:14.208+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='your-actual-email@gmail.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='weather_etl_pipeline' AIRFLOW_CTX_TASK_ID='transform_weather_data' AIRFLOW_CTX_EXECUTION_DATE='2025-09-05T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-09-05T00:00:00+00:00'
+[2025-09-06T18:02:14.209+0000] {python.py:201} INFO - Done. Returned value was: {'latitude': '51.5074', 'longitude': '-0.1278', 'temperature': 22.3, 'windspeed': 14.3, 'winddirection': 115, 'weathercode': 1, 'timestamp': '2025-09-06 18:02:14'}
+[2025-09-06T18:02:14.220+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=weather_etl_pipeline, task_id=transform_weather_data, execution_date=20250905T000000, start_date=20250906T180214, end_date=20250906T180214
+[2025-09-06T18:02:14.232+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-09-06T18:02:14.247+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-09-06T18:04:02.119+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_etl_pipeline.transform_weather_data scheduled__2025-09-05T00:00:00+00:00 [queued]>
+[2025-09-06T18:04:02.123+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_etl_pipeline.transform_weather_data scheduled__2025-09-05T00:00:00+00:00 [queued]>
+[2025-09-06T18:04:02.123+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-09-06T18:04:02.129+0000] {taskinstance.py:2191} INFO - Executing <Task(_PythonDecoratedOperator): transform_weather_data> on 2025-09-05 00:00:00+00:00
+[2025-09-06T18:04:02.131+0000] {standard_task_runner.py:60} INFO - Started process 171 to run task
+[2025-09-06T18:04:02.133+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'weather_etl_pipeline', 'transform_weather_data', 'scheduled__2025-09-05T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/etlweather.py', '--cfg-path', '/tmp/tmpeabb0xda']
+[2025-09-06T18:04:02.134+0000] {standard_task_runner.py:88} INFO - Job 4: Subtask transform_weather_data
+[2025-09-06T18:04:02.157+0000] {task_command.py:423} INFO - Running <TaskInstance: weather_etl_pipeline.transform_weather_data scheduled__2025-09-05T00:00:00+00:00 [running]> on host 7de43d9571e0
+[2025-09-06T18:04:02.195+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='your-actual-email@gmail.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='weather_etl_pipeline' AIRFLOW_CTX_TASK_ID='transform_weather_data' AIRFLOW_CTX_EXECUTION_DATE='2025-09-05T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-09-05T00:00:00+00:00'
+[2025-09-06T18:04:02.196+0000] {python.py:201} INFO - Done. Returned value was: {'latitude': '51.5074', 'longitude': '-0.1278', 'temperature': 22.3, 'windspeed': 14.3, 'winddirection': 115, 'weathercode': 1, 'timestamp': '2025-09-06 18:04:02'}
+[2025-09-06T18:04:02.205+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=weather_etl_pipeline, task_id=transform_weather_data, execution_date=20250905T000000, start_date=20250906T180402, end_date=20250906T180402
+[2025-09-06T18:04:02.226+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-09-06T18:04:02.241+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-09-06T18:08:05.770+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_etl_pipeline.transform_weather_data scheduled__2025-09-05T00:00:00+00:00 [queued]>
+[2025-09-06T18:08:05.774+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_etl_pipeline.transform_weather_data scheduled__2025-09-05T00:00:00+00:00 [queued]>
+[2025-09-06T18:08:05.774+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-09-06T18:08:05.780+0000] {taskinstance.py:2191} INFO - Executing <Task(_PythonDecoratedOperator): transform_weather_data> on 2025-09-05 00:00:00+00:00
+[2025-09-06T18:08:05.783+0000] {standard_task_runner.py:60} INFO - Started process 170 to run task
+[2025-09-06T18:08:05.785+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'weather_etl_pipeline', 'transform_weather_data', 'scheduled__2025-09-05T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/etlweather.py', '--cfg-path', '/tmp/tmpf_7vdx7m']
+[2025-09-06T18:08:05.787+0000] {standard_task_runner.py:88} INFO - Job 4: Subtask transform_weather_data
+[2025-09-06T18:08:05.818+0000] {task_command.py:423} INFO - Running <TaskInstance: weather_etl_pipeline.transform_weather_data scheduled__2025-09-05T00:00:00+00:00 [running]> on host 5dada7bfd45c
+[2025-09-06T18:08:05.878+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='jayashree.kammu@gmail.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='weather_etl_pipeline' AIRFLOW_CTX_TASK_ID='transform_weather_data' AIRFLOW_CTX_EXECUTION_DATE='2025-09-05T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-09-05T00:00:00+00:00'
+[2025-09-06T18:08:05.879+0000] {python.py:201} INFO - Done. Returned value was: {'latitude': '51.5074', 'longitude': '-0.1278', 'temperature': 22.3, 'windspeed': 14.3, 'winddirection': 115, 'weathercode': 1, 'timestamp': '2025-09-06 18:08:05'}
+[2025-09-06T18:08:05.893+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=weather_etl_pipeline, task_id=transform_weather_data, execution_date=20250905T000000, start_date=20250906T180805, end_date=20250906T180805
+[2025-09-06T18:08:05.918+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-09-06T18:08:05.935+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

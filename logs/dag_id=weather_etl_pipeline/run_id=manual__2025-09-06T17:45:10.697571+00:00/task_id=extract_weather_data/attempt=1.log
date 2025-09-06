@@ -1,0 +1,14 @@
+[2025-09-06T17:45:11.316+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_etl_pipeline.extract_weather_data manual__2025-09-06T17:45:10.697571+00:00 [queued]>
+[2025-09-06T17:45:11.320+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_etl_pipeline.extract_weather_data manual__2025-09-06T17:45:10.697571+00:00 [queued]>
+[2025-09-06T17:45:11.320+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-09-06T17:45:11.327+0000] {taskinstance.py:2191} INFO - Executing <Task(_PythonDecoratedOperator): extract_weather_data> on 2025-09-06 17:45:10.697571+00:00
+[2025-09-06T17:45:11.329+0000] {standard_task_runner.py:60} INFO - Started process 66 to run task
+[2025-09-06T17:45:11.332+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'weather_etl_pipeline', 'extract_weather_data', 'manual__2025-09-06T17:45:10.697571+00:00', '--job-id', '48', '--raw', '--subdir', 'DAGS_FOLDER/etlweather.py', '--cfg-path', '/tmp/tmpi1a9g9__']
+[2025-09-06T17:45:11.332+0000] {standard_task_runner.py:88} INFO - Job 48: Subtask extract_weather_data
+[2025-09-06T17:45:11.362+0000] {task_command.py:423} INFO - Running <TaskInstance: weather_etl_pipeline.extract_weather_data manual__2025-09-06T17:45:10.697571+00:00 [running]> on host 0861edd49884
+[2025-09-06T17:45:11.406+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='your-actual-email@gmail.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='weather_etl_pipeline' AIRFLOW_CTX_TASK_ID='extract_weather_data' AIRFLOW_CTX_EXECUTION_DATE='2025-09-06T17:45:10.697571+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-06T17:45:10.697571+00:00'
+[2025-09-06T17:45:11.408+0000] {base.py:83} INFO - Using connection ID 'open_meteo_api' for task execution.
+[2025-09-06T17:45:11.956+0000] {python.py:201} INFO - Done. Returned value was: {'latitude': 51.5, 'longitude': -0.120000124, 'generationtime_ms': 0.0591278076171875, 'utc_offset_seconds': 0, 'timezone': 'GMT', 'timezone_abbreviation': 'GMT', 'elevation': 16.0, 'current_weather_units': {'time': 'iso8601', 'interval': 'seconds', 'temperature': '°C', 'windspeed': 'km/h', 'winddirection': '°', 'is_day': '', 'weathercode': 'wmo code'}, 'current_weather': {'time': '2025-09-06T17:45', 'interval': 900, 'temperature': 22.4, 'windspeed': 14.5, 'winddirection': 117, 'is_day': 1, 'weathercode': 3}}
+[2025-09-06T17:45:11.985+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=weather_etl_pipeline, task_id=extract_weather_data, execution_date=20250906T174510, start_date=20250906T174511, end_date=20250906T174511
+[2025-09-06T17:45:12.018+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-09-06T17:45:12.036+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

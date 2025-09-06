@@ -1,48 +1,136 @@
-Overview
-========
+# ETL Weather App
 
-Welcome to Astronomer! This project was generated after you ran 'astro dev init' using the Astronomer CLI. This readme describes the contents of the project, as well as how to run Apache Airflow on your local machine.
+## Overview
 
-Project Contents
-================
+ETL Weather App is a data pipeline that extracts weather data from the Open-Meteo API, transforms it into a useful format, and loads it by both saving to files and optionally sending email reports. The pipeline is built using Apache Airflow and runs on Docker containers.
 
-Your Astro project contains the following files and folders:
+## Features
 
-- dags: This folder contains the Python files for your Airflow DAGs. By default, this directory includes one example DAG:
-    - `example_astronauts`: This DAG shows a simple ETL pipeline example that queries the list of astronauts currently in space from the Open Notify API and prints a statement for each astronaut. The DAG uses the TaskFlow API to define tasks in Python, and dynamic task mapping to dynamically print a statement for each astronaut. For more on how this DAG works, see our [Getting started tutorial](https://www.astronomer.io/docs/learn/get-started-with-airflow).
-- Dockerfile: This file contains a versioned Astro Runtime Docker image that provides a differentiated Airflow experience. If you want to execute other commands or overrides at runtime, specify them here.
-- include: This folder contains any additional files that you want to include as part of your project. It is empty by default.
-- packages.txt: Install OS-level packages needed for your project by adding them to this file. It is empty by default.
-- requirements.txt: Install Python packages needed for your project by adding them to this file. It is empty by default.
-- plugins: Add custom or community plugins for your project to this file. It is empty by default.
-- airflow_settings.yaml: Use this local-only file to specify Airflow Connections, Variables, and Pools instead of entering them in the Airflow UI as you develop DAGs in this project.
+- **Extract**: Fetches real-time weather data from the Open-Meteo API for any location
+- **Transform**: Processes raw weather data into a meaningful format with human-readable weather descriptions
+- **Load**: Dual output methods:
+  - Saves weather reports as HTML files
+  - Saves weather data as JSON files
+  - Sends email reports (when properly configured)
+- **Scheduling**: Runs on a configurable schedule (daily by default)
+- **Containerized**: Fully Dockerized for easy deployment
 
-Deploy Your Project Locally
-===========================
+## Project Structure
 
-1. Start Airflow on your local machine by running 'astro dev start'.
+```
+ETLWeather/
+├── dags/                    # Airflow DAG files
+│   ├── etlweather.py        # Main ETL pipeline DAG
+│   └── output/              # Directory where weather reports are saved
+├── docker-compose.yaml      # Docker Compose configuration
+├── Dockerfile               # Docker image definition
+├── requirements.txt         # Python dependencies
+├── setup.sh                 # Setup script for easy installation
+└── README.md                # This documentation
+```
 
-This command will spin up 4 Docker containers on your machine, each for a different Airflow component:
+## Prerequisites
 
-- Postgres: Airflow's Metadata Database
-- Webserver: The Airflow component responsible for rendering the Airflow UI
-- Scheduler: The Airflow component responsible for monitoring and triggering tasks
-- Triggerer: The Airflow component responsible for triggering deferred tasks
+- Docker and Docker Compose
+- Internet connection (to access the Open-Meteo API)
+- (Optional) SMTP access for sending emails
 
-2. Verify that all 4 Docker containers were created by running 'docker ps'.
+## Installation and Setup
 
-Note: Running 'astro dev start' will start your project with the Airflow Webserver exposed at port 8080 and Postgres exposed at port 5432. If you already have either of those ports allocated, you can either [stop your existing Docker containers or change the port](https://www.astronomer.io/docs/astro/cli/troubleshoot-locally#ports-are-not-available-for-my-local-airflow-webserver).
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/krishnaik06/ETLWeather.git
+   cd ETLWeather
+   ```
 
-3. Access the Airflow UI for your local Airflow project. To do so, go to http://localhost:8080/ and log in with 'admin' for both your Username and Password.
+2. Run the setup script:
+   ```bash
+   chmod +x setup.sh
+   ./setup.sh
+   ```
 
-You should also be able to access your Postgres Database at 'localhost:5432/postgres'.
+   Or manually start the containers:
+   ```bash
+   docker-compose -f docker-compose.yaml up -d
+   ```
 
-Deploy Your Project to Astronomer
-=================================
+3. Access the Airflow web interface:
+   - URL: http://localhost:8082
+   - Username: admin
+   - Password: admin
 
-If you have an Astronomer account, pushing code to a Deployment on Astronomer is simple. For deploying instructions, refer to Astronomer documentation: https://www.astronomer.io/docs/astro/deploy-code/
+## Configuration
 
-Contact
-=======
+### Weather Location
 
-The Astronomer CLI is maintained with love by the Astronomer team. To report a bug or suggest a change, reach out to our support.
+You can change the location for which weather data is fetched by modifying the latitude and longitude variables in `dags/etlweather.py`:
+
+```python
+# Latitude and longitude for the desired location (London by default)
+LATITUDE = '51.5074'
+LONGITUDE = '-0.1278'
+```
+
+### Email Configuration
+
+To enable email reports, configure the setup script when prompted or manually update the following environment variables in `docker-compose.yaml`:
+
+```yaml
+AIRFLOW__SMTP__SMTP_HOST: 'smtp.gmail.com'
+AIRFLOW__SMTP__SMTP_PORT: '587'
+AIRFLOW__SMTP__SMTP_USER: 'your-actual-email@gmail.com'
+AIRFLOW__SMTP__SMTP_PASSWORD: 'your-gmail-app-password'
+AIRFLOW__SMTP__SMTP_MAIL_FROM: 'your-actual-email@gmail.com'
+```
+
+For Gmail, you'll need to use an App Password instead of your regular password. You can generate one at https://myaccount.google.com/apppasswords.
+
+### Schedule
+
+The default schedule is daily. To change it, modify the `schedule_interval` parameter in `dags/etlweather.py`:
+
+```python
+with DAG(dag_id='weather_etl_pipeline',
+         default_args=default_args,
+         schedule_interval='@daily',  # Change this to your desired schedule
+         catchup=False) as dags:
+```
+
+## Usage
+
+1. In the Airflow UI, find the `weather_etl_pipeline` DAG
+2. Enable the DAG by toggling the switch on the left
+3. Trigger the DAG manually for an immediate run, or wait for the scheduled execution
+4. View the task logs to see the progress of the ETL process
+5. Check the output files in the `/opt/airflow/dags/output/` directory inside the container
+
+## File Outputs
+
+The ETL pipeline generates two types of output files:
+
+1. **HTML Reports**: `/opt/airflow/dags/output/weather_report_[TIMESTAMP].html`
+2. **JSON Data**: `/opt/airflow/dags/output/weather_data_[TIMESTAMP].json`
+
+To view these files from your host system:
+
+```bash
+docker-compose -f docker-compose.yaml exec airflow-scheduler cat /opt/airflow/dags/output/weather_data_[TIMESTAMP].json
+```
+
+## Troubleshooting
+
+- **Email Sending Fails**: If email sending fails, check your SMTP credentials. The app will still save data to files even if email sending fails.
+- **API Connection Issues**: Ensure the container has internet access to reach the Open-Meteo API.
+- **Missing Output Directory**: The DAG will create the output directory if it doesn't exist, but you can manually create it:
+  ```bash
+  docker-compose -f docker-compose.yaml exec airflow-scheduler mkdir -p /opt/airflow/dags/output
+  ```
+
+## License
+
+This project is licensed under the terms of the included LICENSE file.
+
+## Acknowledgements
+
+- Weather data provided by [Open-Meteo API](https://open-meteo.com/)
+- Built with [Apache Airflow](https://airflow.apache.org/)
