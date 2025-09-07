@@ -24,14 +24,18 @@ if [ "$configure_email" = "y" ]; then
   
   # Get email password
   read -p "Enter your email password (for Gmail, use an App Password): " email_password
+  echo ""
+  echo "For information on how to create a Gmail App Password, see README.md"
+  
+  # Update .env file with the SMTP password
+  grep -q "AIRFLOW_SMTP_PASSWORD" .env && sed -i '' "s/AIRFLOW_SMTP_PASSWORD=.*/AIRFLOW_SMTP_PASSWORD=$email_password/g" .env || echo "AIRFLOW_SMTP_PASSWORD=$email_password" >> .env
   
   # Update email settings in docker-compose.yaml
-  sed -i '' "s/AIRFLOW__SMTP__SMTP_USER: 'your-actual-email@gmail.com'/AIRFLOW__SMTP__SMTP_USER: '$email_address'/g" docker-compose.yaml
-  sed -i '' "s/AIRFLOW__SMTP__SMTP_PASSWORD: 'your-gmail-app-password'/AIRFLOW__SMTP__SMTP_PASSWORD: '$email_password'/g" docker-compose.yaml
-  sed -i '' "s/AIRFLOW__SMTP__SMTP_MAIL_FROM: 'your-actual-email@gmail.com'/AIRFLOW__SMTP__SMTP_MAIL_FROM: '$email_address'/g" docker-compose.yaml
+  sed -i '' "s/AIRFLOW__SMTP__SMTP_USER: 'give your email'/AIRFLOW__SMTP__SMTP_USER: '$email_address'/g" docker-compose.yaml
+  sed -i '' "s/AIRFLOW__SMTP__SMTP_MAIL_FROM: 'your email'/AIRFLOW__SMTP__SMTP_MAIL_FROM: '$email_address'/g" docker-compose.yaml
   
   # Update recipient email in the DAG file
-  sed -i '' "s/EMAIL_RECIPIENT = 'your-actual-email@gmail.com'/EMAIL_RECIPIENT = '$email_address'/g" dags/etlweather.py
+  sed -i '' "s/EMAIL_RECIPIENT = 'test@gmail.com'/EMAIL_RECIPIENT = '$email_address'/g" dags/etl_weather.py
   
   echo "Email settings configured."
 else
@@ -52,5 +56,4 @@ if [ "$configure_email" = "y" ]; then
   echo ""
   echo "The weather report will be emailed to $email_address daily."
   echo "If using Gmail, make sure you're using an App Password."
-  echo "Learn more: https://support.google.com/accounts/answer/185833"
 fi
