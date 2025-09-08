@@ -1,17 +1,26 @@
 # Airflow Architecture
 
-## Single Node
-- Smaller workflows.
-- Simple setup, limited scalability.
+## ✅ Single-Node Setup
+- All components on **one machine**
+- Good for:
+    - Development
+    - Small workflows
 
-## Multi Node
-- Larger workflows for production.
-- Scalable, reliable, performant.
-- Handles complex workflows.
+---
 
-## How Airflow Works
-- DAGs define tasks.
-- Scheduler triggers tasks based on time/dependencies.
-- Executor decides execution mode (parallel/sequential).
-- Workers perform the tasks.
-- Metadata database tracks status and logs.
+## ✅ Multi-Node Setup
+- Scheduler, workers, webserver, DB on separate machines
+- Uses Celery or Kubernetes executor
+- Scalable for production
+
+---
+
+## ✅ High-Level Architecture Diagram
+```mermaid
+graph TD
+    A[Web Server] --> B[Scheduler]
+    B --> C[Executor]
+    C --> D[Workers]
+    D --> E[Tasks]
+    B --> F[Metadata Database]
+```

@@ -1,24 +1,39 @@
-# Core Concepts
+# Airflow Core Concepts
 
-## DAG – Directed Acyclic Graph
-- Collection of tasks organized by dependencies.
-- No circular dependencies.
-- Analogy: a recipe for a dish.
+## ✅ DAG (Directed Acyclic Graph)
+- A collection of tasks arranged in order
+- Like a **recipe** for a dish
+- No circular dependencies
 
-## Operator
-- Represents a single, idempotent task.
-- DAG = recipe, Operator = instruction.
-- Examples: PythonOperator, BashOperator, SQLOperator, FileSensor.
+---
 
-## Task / Task Instance
-- Specific instance of an operator in a DAG.
-- Example: Operator = Add Salt, Task = Add Salt at 9:00 AM.
+## ✅ Operator
+- A single, **idempotent** task
+- Examples:
+    - PythonOperator
+    - BashOperator
+    - EmailOperator
+- If DAG = Recipe, **Operator = Instruction in recipe**
 
-## Workflow
-- Orchestration of multiple DAGs/tasks sequentially or in parallel.
+---
 
-## When Not to Use Airflow
-- High-frequency, sub-minute scheduling.
-- Real-time streaming (trading pipelines).
-- Extremely large datasets in a single task.
-- Simple linear workflows where cron jobs suffice.
+## ✅ Task & Task Instance
+- When an operator is assigned to a DAG → becomes a **task**
+- A task running at a specific time → **task instance**
+
+---
+
+## ✅ Workflow
+- The complete process (e.g., ETL)
+
+---
+
+### ✅ Idempotency
+- A task should produce the same result even if run multiple times
+
+---
+
+### ✅ Our ETL DAG Concepts:
+- **DAG:** `weather_etl_pipeline`
+- **Operators:** Python functions for extract, transform, save
+- **Task Instances:** Each daily run of extract/transform/save
