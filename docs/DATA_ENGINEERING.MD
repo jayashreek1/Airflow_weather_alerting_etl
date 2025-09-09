@@ -39,16 +39,7 @@ Airflow is **mostly used for batch workflows**.
 
 ---
 
-## 🔗 5. Data Pipelines
-A **data pipeline** is a series of steps:
-1. **Extract** data (from APIs, databases, files)
-2. **Transform** it (clean, aggregate, validate)
-3. **Load** it into storage/analytics systems
-4. **Monitor** for failures and retries
-
----
-
-## 🌐 6. Common Tools in Data Engineering
+## 🌐 5. Common Tools in Data Engineering
 | Category             | Examples                       |
 |----------------------|--------------------------------|
 | Databases            | PostgreSQL, MySQL, Snowflake   |
