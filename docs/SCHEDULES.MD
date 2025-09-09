@@ -19,10 +19,8 @@ Examples:
 | Concept               | Definition                                            | Example                                   |
 |----------------------|------------------------------------------------------|-------------------------------------------|
 | **Task**             | A single job or script                               | Python script to extract data             |
-| **Job**              | A collection of tasks to achieve a goal              | Full ETL pipeline                         |
 | **Trigger**          | The event or time that starts a job                  | Every 24 hours at midnight                |
 | **Interval**         | Frequency of job execution                           | Every hour, daily, weekly                 |
-| **Dependency**       | When one task must finish before another starts      | Clean data → Load data                    |
 | **Retry Policy**     | Rules for rerunning failed tasks                     | Retry 3 times with 5-min delay            |
 
 ---
