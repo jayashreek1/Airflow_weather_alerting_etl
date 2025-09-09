@@ -26,13 +26,3 @@ Eg:
 - A task running at a specific time → **task instance**
 
 ---
-
-## ✅ Workflow
-- The complete process (e.g., ETL)
-
----
-
-### ✅ Our ETL DAG Concepts:
-- **DAG:** `weather_etl_pipeline`
-- **Operators:** Python functions for extract, transform, save
-- **Task Instances:** Each daily run of extract/transform/save
