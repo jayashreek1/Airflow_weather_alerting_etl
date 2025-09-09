@@ -20,10 +20,11 @@ ETL Weather App is a data pipeline that extracts weather data from the Open-Mete
 ```
 etl_weather/
 ├── dags/                    # Airflow DAG files
-│   ├── etl_weather.py        # Main ETL pipeline DAG
+│   ├── etl_weather.py       # Main ETL pipeline DAG
 │   └── output/              # Directory where weather reports are saved
+		└── tasks/ 							 # Set of tasks
 ├── docker-compose.yaml      # Docker Compose configuration
-├── Dockerfile               # Docker image definition
+├── Dockerfile                # Docker image definition
 ├── requirements.txt         # Python dependencies
 ├── setup.sh                 # Setup script for easy installation
 └── README.md                # This documentation

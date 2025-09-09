@@ -11,9 +11,9 @@ x-airflow-common: &airflow-common
     # Email settings
     AIRFLOW__SMTP__SMTP_HOST: 'smtp.gmail.com'
     AIRFLOW__SMTP__SMTP_PORT: '587'
-    AIRFLOW__SMTP__SMTP_USER: '${AIRFLOW_SMTP_USER}'  # Replace with your email
-    AIRFLOW__SMTP__SMTP_PASSWORD: ${AIRFLOW_SMTP_PASSWORD}  # Password from .env file
-    AIRFLOW__SMTP__SMTP_MAIL_FROM: '${AIRFLOW_SMTP_USER}'  # Replace with your
+    AIRFLOW__SMTP__SMTP_USER: '${AIRFLOW_SMTP_USER}' 
+    AIRFLOW__SMTP__SMTP_PASSWORD: ${AIRFLOW_SMTP_PASSWORD} 
+    AIRFLOW__SMTP__SMTP_MAIL_FROM: '${AIRFLOW_SMTP_USER}' 
     AIRFLOW__SMTP__SMTP_STARTTLS: 'True'
     AIRFLOW__SMTP__SMTP_SSL: 'False'
   volumes:

@@ -1,26 +1,18 @@
-"""
-Utility functions and constants for the weather ETL pipeline.
-"""
 import os
 import logging
 from datetime import datetime
 
-# Set up logger
 logger = logging.getLogger(__name__)
 
-# Latitude and longitude for the desired location
 LATITUDE = '13.0827'
 LONGITUDE = '80.125'
 API_CONN_ID = 'open_meteo_api'
 
-# Email recipient (can be overridden by environment variable)
 EMAIL_RECIPIENT = os.getenv('AIRFLOW_EMAIL_RECIPIENT', 'jayashree.kammu@gmail.com')
 
-# Output directory for weather data
 OUTPUT_DIR = '/opt/airflow/dags/output'
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# Weather code mapping
 WEATHER_CODES = {
     0: "Clear sky",
     1: "Mainly clear", 2: "Partly cloudy", 3: "Overcast",
@@ -37,9 +29,7 @@ WEATHER_CODES = {
 }
 
 def get_timestamp(format_str='%Y-%m-%d %H:%M:%S'):
-    """Return current timestamp in specified format."""
     return datetime.now().strftime(format_str)
 
 def get_file_timestamp():
-    """Return timestamp format suitable for filenames."""
     return datetime.now().strftime("%Y%m%d_%H%M%S")
