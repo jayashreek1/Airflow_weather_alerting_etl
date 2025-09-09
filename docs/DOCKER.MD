@@ -1,3 +1,21 @@
+## ☁️ Infrastructure as Code (IaC) – Why It Matters?
+
+**What is IaC?**  
+Infrastructure as Code is the practice of **defining and managing infrastructure using code** instead of manual setup.
+
+**Why is it important?**
+- ✅ **Consistency** – Same environment every time
+- ✅ **Automation** – No more manual server setup
+- ✅ **Scalability** – Easy to replicate for multiple environments
+
+**Examples:**
+- Dockerfiles (for containers)
+- Terraform (for cloud infra)
+- Kubernetes manifests (for orchestration)
+
+**In this session:**  
+Docker acts as IaC – we define **Airflow setup in code** so it runs anywhere!
+
 # 🐳 What is Docker? (Explained Simply)
 
 ## ✅ Start with a Relatable Analogy

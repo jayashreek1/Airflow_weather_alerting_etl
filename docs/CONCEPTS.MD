@@ -2,6 +2,7 @@
 
 ## ✅ DAG (Directed Acyclic Graph)
 - A collection of tasks arranged in order
+- Like a **recipe** for a dish
 - No circular dependencies
 
 Eg: - Like a **recipe** for a dish. Has a list of ingredients to prepare a dish

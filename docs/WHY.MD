@@ -56,18 +56,4 @@ You write Python scripts:
 ## ✅ Discussion Question:
 Where else would you need a system that runs **multiple steps in order, every day, without fail**?
 
-Examples students might say:
-- E-commerce order processing
-- Bank transaction reconciliation
-- Social media content scheduling
-- Daily backup jobs
-
 ---
-
-## ✅ DAG Visualization
-```mermaid
-graph TD;
-  A[Extract Weather Data] --> B[Transform Data];
-  B --> C[Save Report]
-  B --> D[Send Email Alert]
-```
