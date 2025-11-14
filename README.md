@@ -237,3 +237,6 @@ This project is licensed under the terms of the included LICENSE file.
 
 - Weather data provided by [Open-Meteo API](https://open-meteo.com/)
 - Built with [Apache Airflow](https://airflow.apache.org/)
+
+## Reference  
+    https://github.com/krishnaik06?tab=overview&from=2025-10-01&to=2025-10-31
